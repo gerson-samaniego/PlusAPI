@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace PlusAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class PlusAPI : ControllerBase
 {
     private readonly ILogger<PlusAPI> _logger;
@@ -13,9 +13,6 @@ public class PlusAPI : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "CalcSum")]
-    public int Get(int a, int b)
-    {
-        return a + b;
-    }
+    [HttpGet("{a}/{b}")]
+    public int sum(int a, int b) => a + b;
 }
